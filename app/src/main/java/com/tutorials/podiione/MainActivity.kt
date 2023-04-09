@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.homeFragment//,R.id.cartFragment
+                R.id.homeFragment
             ),binding.drawerLayout
         )
 

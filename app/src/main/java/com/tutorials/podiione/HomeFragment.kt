@@ -119,7 +119,6 @@ class HomeFragment : Fragment() {
             viewModel.allSnacks.collect { state ->
                 when (state) {
                     is HomeState.Loading -> {
-                        Log.d("JOE", "observe: $state")
                         binding.categoryErrorText.isVisible = false
                         binding.emptyStateTv.isVisible = false
                         binding.recommendationRecyclerView.isVisible = false
@@ -127,7 +126,6 @@ class HomeFragment : Fragment() {
                         binding.progressBar.isVisible = true
                     }
                     is HomeState.Failure -> {
-                        Log.d("JOE", "observe: $state")
                         binding.categoryErrorText.isVisible = true
                         binding.emptyStateTv.isVisible = true
                         binding.recommendationRecyclerView.isVisible = false
@@ -138,7 +136,6 @@ class HomeFragment : Fragment() {
 
                     }
                     is HomeState.Success -> {
-                        Log.d("JOE", "observe: $state")
                         binding.categoryErrorText.isVisible = false
                         binding.emptyStateTv.isVisible = false
                         binding.categoryItemsRecyclerView.isVisible = true
@@ -181,15 +178,12 @@ class HomeFragment : Fragment() {
                 when (it.text.lowercase()) {
                     "Featured".lowercase() -> {
                         onFeature()
-                        Log.d("JOE", "observeOnCategory: feature-> $it")
                     }
                     "Favorites".lowercase() -> {
                         onFavorite()
-                        Log.d("JOE", "observeOnCategory: favorite-> $it")
                     }
                     "Combos".lowercase() -> {
                         onCombos()
-                        Log.d("JOE", "observeOnCategory: combos-> $it")
                     }
                 }
             }

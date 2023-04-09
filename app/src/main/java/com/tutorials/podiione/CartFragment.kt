@@ -41,14 +41,12 @@ class CartFragment : Fragment() {
                 binding.clearText.setOnClickListener { showClearDialog(state) }
                 when (state) {
                     is CartState.Loading -> {
-                        Log.d("JOE", "observe cart items: $state")
                         binding.errorText.isVisible = false
                         binding.cartItemsRecyclerView.isVisible = false
                         binding.progressBar.isVisible = true
                         getTotalCost()
                     }
                     is CartState.Failure -> {
-                        Log.d("JOE", "observe cart items: $state")
                         binding.errorText.isVisible = true
                         binding.cartItemsRecyclerView.isVisible = false
                         binding.progressBar.isVisible = false
@@ -57,7 +55,6 @@ class CartFragment : Fragment() {
 
                     }
                     is CartState.Success -> {
-                        Log.d("JOE", "observe cart items: $state")
                         binding.errorText.isVisible = false
                         binding.cartItemsRecyclerView.isVisible = true
                         binding.progressBar.isVisible = false

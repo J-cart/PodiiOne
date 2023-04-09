@@ -77,7 +77,6 @@ class SearchFragment : Fragment() {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 query?.let {
                     viewModel.searchSnack(query.trim())
-                    Log.d("search query", "itemQuery")
                 } ?: viewModel.toggleSearchSnackState(HomeState.Failure("Search Snacks..."))
                 return true
 
@@ -88,11 +87,9 @@ class SearchFragment : Fragment() {
                 newText?.let {
                     if (newText.trim().isEmpty()) {
                         viewModel.toggleSearchSnackState(HomeState.Failure("Search Snacks..."))
-                        Log.d("search query", "EMPTY")
                         return@let
                     }
                     viewModel.searchSnack(newText.trim())
-                    Log.d("search query", "itemQuery")
 
                 } ?: viewModel.toggleSearchSnackState(HomeState.Failure("Search Snacks..."))
                 return true

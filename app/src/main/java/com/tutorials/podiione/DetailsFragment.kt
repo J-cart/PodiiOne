@@ -86,7 +86,6 @@ class DetailsFragment : Fragment() {
 
             lifecycleScope.launch {
                 viewModel.favoriteSnacks.collect{
-                    Log.d("JOE", "onViewCreated: favorite snacks $it")
                     isFavorite = it.contains(response)
                     if (isFavorite){
                         binding.favoriteImg.setImageDrawable(ContextCompat.getDrawable(requireContext(),R.drawable.favorite_filled))
@@ -106,7 +105,6 @@ class DetailsFragment : Fragment() {
 //        observeAllCartItem()
         lifecycleScope.launch{
             viewModel.allCartItem.collect{state->
-                Log.d("JOE", "observeAllCartItem: $state")
                 when (state) {
                     is CartState.Success -> {
                         binding.badgeText.text = state.items.size.toString()
@@ -151,7 +149,6 @@ class DetailsFragment : Fragment() {
     private fun observeAllCartItem(){
         lifecycleScope.launch{
             viewModel.allCartItem.collect{state->
-                Log.d("JOE", "observeAllCartItem: $state")
                 when (state) {
                     is CartState.Success -> {
                         binding.badgeText.text = state.items.size.toString()
