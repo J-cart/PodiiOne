@@ -7,11 +7,14 @@
 <p align="center">  
  Podii demonstrates modern Android development with Hilt, Coroutines, Flow, Jetpack (Room, ViewModel), and Material Design based on MVVM architecture.
 </p>
-</br>
+
 
 
 ## Demo
    
+https://user-images.githubusercontent.com/82452881/230796167-98d1d771-8226-49d1-8d2a-ea75b2e776c9.mp4
+
+
 <img src="/previews/preview.gif" align="right" width="320"/>
 
 ## Tech stack & Open-source libraries
