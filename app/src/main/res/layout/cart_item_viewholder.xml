@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginVertical="5dp"
+    android:background="@drawable/search_background"
+    android:backgroundTint="@color/lavender_blush"
+    android:clipToOutline="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/image_holder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/search_background"
+        android:backgroundTint="@color/uranian_blue"
+        android:clipToOutline="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/meal_image"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/search_background"
+            android:backgroundTint="@color/light_salmon"
+            android:clipToOutline="true"
+            android:padding="5dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/big_mac"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/meal_title_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/outfit_regular"
+        android:textColor="?attr/colorOnSurface"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/meal_price_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/image_holder"
+        app:layout_constraintTop_toTopOf="@+id/image_holder"
+        tools:text="A delicious big mac" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/total_amount_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="@font/outfit_regular"
+        tools:text="$200"
+        android:textColor="?attr/colorOnSurface"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/meal_price_text"
+        tools:textSize="17dp" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/meal_price_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="@font/outfit_regular"
+        android:text="$200"
+        android:textColor="@color/salmon"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/meal_title_text" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

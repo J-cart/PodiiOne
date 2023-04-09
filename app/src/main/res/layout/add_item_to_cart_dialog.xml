@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20dp">
+
+    <ImageView
+        android:id="@+id/cart_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/image_background"
+        android:backgroundTint="@color/salmon"
+        android:clipToOutline="true"
+        android:elevation="40dp"
+        android:padding="10dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/shopping_cart_white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/meal_title_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/outfit_regular"
+        android:padding="5dp"
+        android:textAlignment="center"
+        android:textColor="?attr/colorOnSurface"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cart_img"
+        tools:text="A delicious big mac" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/amount_edt_box"
+        style="@style/CustomInputLayoutOutlined"
+        android:theme="@style/CustomInputLayoutAccent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        app:hintEnabled="false"
+        app:layout_constraintTop_toBottomOf="@+id/meal_title_text"
+        tools:layout_editor_absoluteX="16dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/amount_edt_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Amount"
+            android:inputType="number" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/add_to_cart_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/salmon"
+        android:fontFamily="@font/outfit_regular"
+        android:text="Add to cart"
+        android:textColor="?attr/colorSurface"
+
+        app:layout_constraintEnd_toEndOf="@+id/amount_edt_box"
+        app:layout_constraintStart_toStartOf="@+id/amount_edt_box"
+        app:layout_constraintTop_toBottomOf="@+id/amount_edt_box" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/cancel_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/transparent"
+        android:fontFamily="@font/outfit_regular"
+        android:paddingHorizontal="30dp"
+        android:paddingVertical="11dp"
+        android:text="cancel"
+        android:textColor="@color/salmon"
+        app:layout_constraintEnd_toEndOf="@+id/add_to_cart_btn"
+        app:layout_constraintStart_toStartOf="@+id/add_to_cart_btn"
+        app:layout_constraintTop_toBottomOf="@+id/add_to_cart_btn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:title="Home"
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/home_icon"
+        app:showAsAction="always"
+        />
+
+ <item
+        android:title="Cart"
+        android:id="@+id/cartFragment"
+        android:icon="@drawable/shopping_cart_black"
+        app:showAsAction="always"
+        />
+
+</menu>

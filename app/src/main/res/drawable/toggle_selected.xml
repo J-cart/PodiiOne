@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="?android:attr/selectableItemBackground"
+        android:state_pressed="true" />
+    <item android:drawable="?android:attr/selectableItemBackground"
+        android:state_enabled="true"
+        android:state_focused="true"
+        android:state_window_focused="true" />
+    <item android:drawable="@drawable/image_background" />
+</selector>
+
+
+<!--    android:background="?android:attr/selectableItemBackground"-->
+<!--    android:clickable="true"-->
+<!--    android:focusable="true"-->
