@@ -1,10 +1,11 @@
-package com.tutorials.podiione
+package com.tutorials.podiione.util
 
 import android.content.Context
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import com.tutorials.podiione.R
 import com.tutorials.podiione.model.Response
 
 fun parseSnacksResponse(context: Context): List<Response>? {

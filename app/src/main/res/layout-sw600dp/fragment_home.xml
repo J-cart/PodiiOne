@@ -13,7 +13,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/outfit_regular"
-        android:text="SEARCH FOR RECIPES"
+        android:text="SEARCH FOR SNACK"
         android:textColor="?attr/colorOnSurface"
         android:textSize="24dp"
         android:textStyle="bold"

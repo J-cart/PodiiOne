@@ -1,21 +1,19 @@
 package com.tutorials.podiione
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.tutorials.podiione.adapter.CartAdapter
-import com.tutorials.podiione.databinding.AddItemToCartDialogBinding
+import com.tutorials.podiione.arch.CartState
+import com.tutorials.podiione.arch.SnacksViewModel
 import com.tutorials.podiione.databinding.FragmentCartBinding
 import com.tutorials.podiione.model.CartItem
-import com.tutorials.podiione.model.Response
 import kotlinx.coroutines.launch
 
 
@@ -38,6 +36,7 @@ class CartFragment : Fragment() {
         binding.cartItemsRecyclerView.adapter = cartAdapter
         lifecycleScope.launch {
             viewModel.allCartItem.collect { state ->
+                binding.clearText.isVisible = state is CartState.Success
                 binding.clearText.setOnClickListener { showClearDialog(state) }
                 when (state) {
                     is CartState.Loading -> {

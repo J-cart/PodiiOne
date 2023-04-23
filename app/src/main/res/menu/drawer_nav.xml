@@ -12,7 +12,7 @@
  <item
         android:title="Cart"
         android:id="@+id/cartFragment"
-        android:icon="@drawable/shopping_cart_black"
+        android:icon="@drawable/shopping_cart_white"
         app:showAsAction="always"
         />
 

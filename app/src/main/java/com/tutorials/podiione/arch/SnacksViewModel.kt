@@ -1,11 +1,13 @@
-package com.tutorials.podiione
+package com.tutorials.podiione.arch
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.tutorials.podiione.R
 import com.tutorials.podiione.model.CartItem
 import com.tutorials.podiione.model.CurrentSelection
 import com.tutorials.podiione.model.Response
+import com.tutorials.podiione.util.parseSnacksResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -24,6 +26,9 @@ class SnacksViewModel : ViewModel() {
         private set
 
     var allCartItem = MutableStateFlow<CartState>(CartState.Failure("Cart is empty..."))
+        private set
+
+    var currentSnackDetail = MutableStateFlow<HomeState>(HomeState.Loading)
         private set
 
 
@@ -107,13 +112,26 @@ class SnacksViewModel : ViewModel() {
         allCartItem.value = state
     }
 
+    fun toggleCurrentSnackDetailState(state: HomeState){
+        currentSnackDetail.value = state
+    }
 
 }
 
 sealed class HomeState {
     object Loading : HomeState()
     data class Failure(val msg: String) : HomeState()
-    data class Success(val allSnacks: List<Response>) : HomeState()
+     class Success : HomeState {
+        lateinit var response: Response
+        lateinit var allSnacks: List<Response>
+
+        constructor(data:List<Response>){
+            allSnacks = data
+        }
+        constructor(data:Response){
+            response = data
+        }
+    }
 }
 
 sealed class CartState {

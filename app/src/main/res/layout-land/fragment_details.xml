@@ -9,6 +9,18 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:progressDrawable="@drawable/loading_anim"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/add_to_cart_holder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/title_text"
             android:layout_width="0dp"
@@ -84,6 +96,35 @@
             app:layout_constraintStart_toStartOf="@+id/cart_img"
             app:layout_constraintTop_toBottomOf="@+id/cart_img" />
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/details_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/search_background"
+            android:backgroundTint="@color/white"
+            android:clipToOutline="true"
+            android:elevation="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/favorite_img"
+            app:layout_constraintStart_toStartOf="@+id/favorite_img"
+            app:layout_constraintTop_toBottomOf="@+id/favorite_img">
+
+            <ImageView
+                android:id="@+id/detail_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="15dp"
+                app:tint  ="@color/salmon"
+                android:src="@drawable/information_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cart_img"
@@ -221,7 +262,104 @@
             app:layout_constraintTop_toBottomOf="@+id/feature_text"
             tools:itemCount="11"
             tools:listitem="@layout/detail_item_viewholder" />
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/coordinatorLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/details_btn">
 
+            <FrameLayout
+                android:id="@+id/bottom_sheet_frame"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:elevation="40dp"
+                android:clipToOutline="true"
+                android:backgroundTint="?attr/colorSurface"
+                android:background="@drawable/bottom_sheet_background_cut"
+                app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/detail_title_text"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/outfit_regular"
+                        android:text="DETAILS"
+                        android:textColor="@color/salmon"
+                        android:textSize="18dp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/close_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:background="?android:attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:padding="4dp"
+                        android:src="@drawable/arrow_down_icon"
+                        app:layout_constraintBottom_toBottomOf="@+id/detail_title_text"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/detail_title_text"
+                        app:tint="@color/light_salmon" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/ingredient_desc"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="@font/outfit_regular"
+                        android:textColor="?attr/colorOnSurface"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/detail_title_text"
+                        tools:text="Pasteurized Process American Cheese" />
+
+                    <TextView
+                        android:id="@+id/ingredients_holder"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/outfit_regular"
+                        android:text="INGREDIENTS"
+                        android:textColor="@color/salmon"
+                        android:textSize="18dp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ingredient_desc" />
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/ingredients_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ingredients_holder"
+                        tools:itemCount="11"
+                        tools:listitem="@layout/details_ingredients_viewholder" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </FrameLayout>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
             android:layout_width="wrap_content"
